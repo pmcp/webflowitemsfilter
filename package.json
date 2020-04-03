@@ -100,7 +100,6 @@
     }
   },
   "babel": {
-    "browserslist": "ie 10, > 2%",
     "plugins": [
       "@babel/plugin-proposal-class-properties",
       [
