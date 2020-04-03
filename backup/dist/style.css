@@ -1,0 +1,48 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Microsoft Edge Browser 12+ (All) - @supports method */
+@supports (-ms-ime-align: auto) {
+  .cc-modern {
+    display: none;
+  }
+
+  .cc-fallback {
+    display: block;
+  }
+}
+/* Microsoft 11 */
+@media all and (-ms-high-contrast: none) {
+  .cc-modern {
+    display: none;
+  }
+
+  .cc-fallback {
+    display: block;
+  }
+}
+.cc-button {
+  border: 2px solid #fc2d75;
+}
+
+.cc-button--inActive {
+  background-color: #e8edf4;
+  border: 2px solid #e8edf4;
+  color: #130b2c;
+}
+
+.cc-button--activeNotSpecified {
+  border: 2px solid #fc2d75;
+  background-color: #e8edf4;
+  color: #130b2c;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
