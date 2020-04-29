@@ -38,6 +38,12 @@ var app = new Vue({
   mounted() {
 
 
+    // Get the url params for filtering
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const genresParams = urlParams.get('genres')
+    const audienceParams = urlParams.get('audience')
+    console.log(genresParams, audienceParams)
 
 
 
@@ -47,10 +53,10 @@ var app = new Vue({
     const itemsObject2 = container2.children;
 
     if (itemsObject1) {
-
-
-
-
+      
+   
+      
+      
       const itemsArray1 = Object.keys(itemsObject1).map(function (key) { return itemsObject1[key]; });
       const itemsArray2 = Object.keys(itemsObject2).map(function (key) { return itemsObject2[key]; });
       /*  Get all the info out of the html and make an object per item.
@@ -58,7 +64,7 @@ var app = new Vue({
           extracts the collection to a json when article is saved or edited (webhook)
       */
 
-
+      
       const allItemsArray = [...itemsArray1, ...itemsArray2]
       const updatedItems = allItemsArray.map(this.setAttributes);
       this.items = updatedItems;
@@ -67,63 +73,63 @@ var app = new Vue({
       /* Convert object to array */
       const genresArray = Object.keys(genres).map(function (key) {
 
-        return { name: key, active: true, total: genres[key].total }
+        return { name: key, active: true, total: genres[key].total}
 
       });
 
+      
+            /* Check if there are url params set */
 
-      /* Check if there are url params set */
-
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      const genresParams = urlParams.get('genres')
-      const audienceParams = urlParams.get('audience')
-
-
-
-      /** First for genres */
-      let genresArrayUpdatedWithFilter = []
-      if (genresParams !== null) {
-        genresArrayUpdatedWithFilter = genresArray.map(genre => {
-          let newGenre = {}
-          if (genresParams.indexOf(genre.name) > -1) {
-            newGenre = { ...genre }
-          } else {
-            newGenre = { ...genre, active: false }
-          }
-
-          this.untouchedAudience = false;
-          this.untouchedGenres = false;
-
-          return newGenre
-        })
-      } else {
-        genresArrayUpdatedWithFilter = [...genresArray]
-      }
-
-      /** then for audience */
-      let audienceArrayUpdatedWithFilter = []
-      if (audienceParams !== null) {
-        audienceArrayUpdatedWithFilter = this.audience.map(audience => {
-          let newAudience = {}
-          if (audienceParams.indexOf(audience.name) > -1) {
-            newAudience = { ...audience }
-          } else {
-            newAudience = { ...audience, active: false }
-          }
-
-          this.untouchedAudience = false;
-          this.untouchedGenres = false;
-
-          return newAudience
-        })
-      } else {
-        audienceArrayUpdatedWithFilter = [...this.audience]
-      }
-      this.audience = [...audienceArrayUpdatedWithFilter]
-      this.genresDefaultObject = genres;
-      this.genres = [...genresArrayUpdatedWithFilter];
-      this.filterItems();
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const genresParams = urlParams.get('genres')
+            const audienceParams = urlParams.get('audience')
+          
+            
+      
+            /** First for genres */
+            let genresArrayUpdatedWithFilter = []
+            if(genresParams !== null ) {
+              genresArrayUpdatedWithFilter = genresArray.map(genre => {
+                let newGenre = {}
+                if(genresParams.indexOf(genre.name) > -1) {
+                  newGenre = {...genre }
+                } else {
+                  newGenre = { ...genre, active: false }
+                }
+      
+                this.untouchedAudience = false;
+                this.untouchedGenres = false;
+      
+                return newGenre
+              })
+            } else {
+              genresArrayUpdatedWithFilter = [...genresArray]
+            }
+      
+            /** then for audience */
+            let audienceArrayUpdatedWithFilter = []
+            if(audienceParams !== null ) {
+              audienceArrayUpdatedWithFilter = this.audience.map(audience => {
+                let newAudience = {}
+                if(audienceParams.indexOf(audience.name) > -1) {
+                  newAudience = {...audience }
+                } else {
+                  newAudience = { ...audience, active: false }
+                }
+      
+                this.untouchedAudience = false;
+                this.untouchedGenres = false;
+      
+                return newAudience
+              })
+            } else {
+              audienceArrayUpdatedWithFilter = [...this.audience]
+            }
+            this.audience = [...audienceArrayUpdatedWithFilter]
+            this.genresDefaultObject = genres;
+            this.genres = [...genresArrayUpdatedWithFilter];
+            this.filterItems();
 
 
       /* Remove the fallback list */
@@ -134,23 +140,16 @@ var app = new Vue({
 
   methods: {
 
-    goToPage: function (url) {
+    goToPage: function(url){
       const genresFiltered = this.genres.filter(item => item.active)
-      const genresParam = genresFiltered.map(item => { if (item.active) { return item.name } })
+      const genresParam = genresFiltered.map(item => { if(item.active) {return item.name}})
 
       const audienceFiltered = this.audience.filter(item => item.active)
-      const audienceParam = audienceFiltered.map(item => { if (item.active) { return item.name } })
-
+      const audienceParam = audienceFiltered.map(item => { if(item.active) {return item.name}})
+      
       const audienceParamToParams = JSON.stringify(audienceParam)
       const genresParamToParams = JSON.stringify(genresParam)
-
-
-
-      const untouchedAudience = this.untouchedAudience
-      const untouchedGenres = this.untouchedGenres
-      window.location.href = `${url}?audience=${audienceParamToParams}&untouchedAudience=${untouchedAudience}&genres=${genresParamToParams}&untouchedGenres=${untouchedGenres}`;
-
-
+      window.location.href = `/${url}?audience=${audienceParamToParams}&genres=${genresParamToParams}`;
     },
 
     setAttributes: function (item) {
@@ -272,15 +271,15 @@ var app = new Vue({
         this.$set(originalArray, i, updatedArray[i]);
       }
 
+      
 
+//       let eventAction = "off";
+//       if (originalArray[key].active) eventAction = "on";
 
-      //       let eventAction = "off";
-      //       if (originalArray[key].active) eventAction = "on";
-
-      //       gtag("event", eventAction, {
-      //         event_category: originalArray[key].name,
-      //         event_label: "Filter"
-      //       });
+//       gtag("event", eventAction, {
+//         event_category: originalArray[key].name,
+//         event_label: "Filter"
+//       });
 
       this.filterItems();
     },
@@ -459,5 +458,5 @@ var app = new Vue({
     t = " w-mod-";
   (n.className += t + "js"),
     ("ontouchstart" in o || (o.DocumentTouch && c instanceof DocumentTouch)) &&
-    (n.className += t + "touch");
+      (n.className += t + "touch");
 })(window, document);

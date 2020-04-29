@@ -25,6 +25,17 @@
 		"oAP": "/backup/dist/index.html",
 		"oF": 0
 		},
+	"/backup/dist/script-min.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/backup/dist/script-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
 	"/backup/dist/script.js": {
 		"bF": 0,
 		"ft": 64,
@@ -35,6 +46,16 @@
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
+		},
+	"/backup/dist/style-min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/backup/dist/style-min-min.css",
+		"oF": 0,
+		"oS": 3
 		},
 	"/backup/dist/style.css": {
 		"aP": 1,
@@ -70,6 +91,16 @@
 		"oAP": "/backup/src/script.babel",
 		"oF": 0
 		},
+	"/backup/src/style.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/backup/src/style-min.css",
+		"oF": 0,
+		"oS": 3
+		},
 	"/backup/src/style.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -83,27 +114,19 @@
 		"oS": 0,
 		"uL": 1
 		},
-	"/build/gulpfile.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
+	"/build/.gitignore": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
 		"oA": 0,
-		"oAP": "/build/gulpfile-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
+		"oAP": "/build/.gitignore",
+		"oF": 0
 		},
-	"/build/util.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "/build/util-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
+	"/build/node_modules": {
+		"ft": 65536,
+		"oA": 2,
+		"oAP": "/build/build/node_modules",
+		"oF": 0
 		},
 	"/dist/index.html": {
 		"cB": 0,
@@ -112,6 +135,28 @@
 		"oA": 0,
 		"oAP": "/dist/index.html",
 		"oF": 0
+		},
+	"/dist/script copy.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/dist/script copy-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"/dist/script-min.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/dist/script-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
 		},
 	"/dist/script.js": {
 		"bF": 0,
@@ -123,6 +168,16 @@
 		"oF": 0,
 		"sC": 3,
 		"tS": 1
+		},
+	"/dist/style-min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/dist/style-min-min.css",
+		"oF": 0,
+		"oS": 3
 		},
 	"/dist/style.css": {
 		"aP": 1,
@@ -196,13 +251,45 @@
 		"oAP": "/src/index.template.html",
 		"oF": 0
 		},
-	"/src/script.babel": {
+	"/src/script copy.babel": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/src/script.babel",
+		"oAP": "/src/script copy.babel",
 		"oF": 0
+		},
+	"/src/script-min.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/src/script-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"/src/script.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/src/script-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"/src/style.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/src/style-min.css",
+		"oF": 0,
+		"oS": 3
 		},
 	"/src/style.scss": {
 		"aP": 0,
@@ -225,7 +312,7 @@
 "projectAttributes": {
 	"creationDate": 607613457.96422005,
 	"displayValue": "podiumaanhuisfilter",
-	"displayValueWasSetByUser": 0,
+	"displayValueWasSetByUser": 1,
 	"iconImageName": "brackets-slime",
 	"iconImageWasSetByUser": 0
 	},
